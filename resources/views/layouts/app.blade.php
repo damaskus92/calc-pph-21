@@ -14,19 +14,32 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+    @stack('styles')
+
     <!-- Alpinejs -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        {{ $slot }}
-    </div>
+    <!-- Navbar -->
+    <x-partials.navigation />
+
+    <!-- Page Content -->
+    <section class="content-wrapper">
+        <div class="container">
+            {{ $slot }}
+        </div>
+    </section>
+
+    <!-- Navbar -->
+    <x-partials.footer />
 
     @livewireScripts
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    @stack('scripts')
 </body>
 
 </html>
