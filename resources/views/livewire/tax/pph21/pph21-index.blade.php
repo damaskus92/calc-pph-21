@@ -6,7 +6,6 @@
         <div class="row gy-3">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header fw-bold">{{ __('PTKP') }}</div>
                     <div class="card-body d-grid gap-2 gap-sm-3">
                         <div class="row align-items-center">
                             <label class="col-sm-6 col-form-label">{{ __('Status Perkawinan/Tanggungan') }}</label>
@@ -24,7 +23,7 @@
                         <div class="row align-items-center">
                             <label class="col-sm-6 col-form-label">{{ __('Penghasilan Tidak Kena Pajak') }}</label>
                             <div class="col-sm-6">
-                                <input wire:model.lazy="input.ptkp_value" class="form-control text-end" format-currency="IDR" disabled />
+                                <input wire:model.lazy="autofill.ptkp_value" class="form-control text-end" format-currency="IDR" disabled />
                             </div>
                         </div>
                     </div>
@@ -63,7 +62,7 @@
                                 <div class="row align-items-center">
                                     <label class="col-sm-6 col-form-label fw-bold">{{ __('Jumlah Penghasilan Bruto') }}</label>
                                     <div class="col-sm-6">
-                                        <input wire:model="input.total_gross" class="form-control text-end fw-bold" format-currency="IDR" disabled />
+                                        <input wire:model="autofill.total_gross" class="form-control text-end fw-bold" format-currency="IDR" disabled />
                                     </div>
                                 </div>
                             </div>
@@ -84,13 +83,13 @@
                                         <div class="row align-items-center">
                                             <label class="col-sm-6 col-form-label">{{ __('Biaya Jabatan') }}</label>
                                             <div class="col-sm-6">
-                                                <input wire:model="input.position_cost" class="form-control text-end" format-currency="IDR" disabled />
+                                                <input wire:model="autofill.position_cost" class="form-control text-end" format-currency="IDR" disabled />
                                             </div>
                                         </div>
                                         <div class="row align-items-center">
                                             <label class="col-sm-6 col-form-label fw-bold">{{ __('Jumlah Penghasilan Neto') }}</label>
                                             <div class="col-sm-6">
-                                                <input wire:model="input.total_net" class="form-control text-end fw-bold" format-currency="IDR" disabled />
+                                                <input wire:model="autofill.total_net" class="form-control text-end fw-bold" format-currency="IDR" disabled />
                                             </div>
                                         </div>
                                     </div>
@@ -105,50 +104,49 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 {{ $isVisible ? '' : 'd-none' }}" id="result">
+            <div class="col-12 {{ $isVisible ? '' : 'd-none' }}">
                 <div class="card">
-                    {{-- <div class="card-header fw-bold">{{ __('Hasil') }}</div> --}}
                     <div class="card-body d-grid gap-2 gap-sm-3">
                         <div class="row align-items-center">
                             <label class="col-sm-6 col-form-label">{{ __('Penghasilan Disetahunkan') }}</label>
                             <div class="col-sm-6">
-                                <input wire:model="result.total_net_year" class="form-control text-end" format-currency="IDR" disabled />
+                                <input wire:model="autofill.total_net_year" class="form-control text-end" format-currency="IDR" disabled />
                             </div>
                         </div>
                         <div class="row align-items-center">
                             <label class="col-sm-6 col-form-label">{{ __('Penghasilan Tidak Kena Pajak') }}</label>
                             <div class="col-sm-6">
-                                <input wire:model="result.ptkp_year" class="form-control text-end" format-currency="IDR" disabled />
+                                <input wire:model="autofill.ptkp_year" class="form-control text-end" format-currency="IDR" disabled />
                             </div>
                         </div>
                         <div class="row align-items-center">
                             <label class="col-sm-6 col-form-label">{{ __('Penghasilan Kena Pajak') }}</label>
                             <div class="col-sm-6">
-                                <input wire:model="result.pkp_year" class="form-control text-end" format-currency="IDR" disabled />
+                                <input wire:model="autofill.pkp_year" class="form-control text-end" format-currency="IDR" disabled />
                             </div>
                         </div>
                         <div class="row align-items-center">
                             <label class="col-sm-6 col-form-label">{{ __('PPh 21 Terutang (Setahun)') }}</label>
                             <div class="col-sm-6">
-                                <input wire:model="result.tax_payable_year" class="form-control text-end" format-currency="IDR" disabled />
+                                <input wire:model="autofill.tax_payable_year" class="form-control text-end" format-currency="IDR" disabled />
                             </div>
                         </div>
                         <div class="row align-items-center">
                             <label class="col-sm-6 col-form-label">{{ __('PPh 21 Atas Gaji Bulan ini') }}</label>
                             <div class="col-sm-6">
-                                <input wire:model="result.tax_payable_month" class="form-control text-end" format-currency="IDR" disabled />
+                                <input wire:model="autofill.tax_payable_month" class="form-control text-end" format-currency="IDR" disabled />
                             </div>
                         </div>
                         <div class="row align-items-center">
                             <label class="col-sm-6 col-form-label">{{ __('Potongan PPh 21 Atas Bonus/THR') }}</label>
                             <div class="col-sm-6">
-                                <input wire:model="result.tax_discount" class="form-control text-end" format-currency="IDR" disabled />
+                                <input wire:model="autofill.tax_on_bonus" class="form-control text-end" format-currency="IDR" disabled />
                             </div>
                         </div>
                         <div class="row align-items-center">
                             <label class="col-sm-6 col-form-label fw-bold">{{ __('Jumlah PPh 21 Bulan ini') }}</label>
                             <div class="col-sm-6">
-                                <input wire:model="result.total_tax_month" class="form-control text-end fw-bold" format-currency="IDR" disabled />
+                                <input wire:model="autofill.total_tax_month" class="form-control text-end fw-bold" format-currency="IDR" disabled />
                             </div>
                         </div>
                     </div>
