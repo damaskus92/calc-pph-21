@@ -12,7 +12,7 @@
                     </div>
                     <h2 class="fs-4 fw-bold mb-0 pt-2">{{ __('Hitung PPh 21') }}</h2>
                 </div>
-                <a href="javascript:void(0)" class="stretched-link"></a>
+                <a href="{{ route('pph-21.index') }}" class="stretched-link"></a>
             </div>
         </div>
         <div class="col">

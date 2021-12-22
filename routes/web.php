@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Home;
+use App\Http\Livewire\Tax\Pph21\Pph21Index;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', Home::class)->name('home');
+
+Route::prefix('calculator')->group(function () {
+    Route::get('pph-21', Pph21Index::class)->name('pph-21.index');
+});
